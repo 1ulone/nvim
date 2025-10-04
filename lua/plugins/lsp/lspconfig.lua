@@ -175,26 +175,50 @@ return {
         })
 
         --intelephense
+        local project_root = vim.fn.getcwd()
+
         lspconfig.intelephense.setup({
             capabilities = capabilities,
             settings = {
                 intelephense = {
                     files = {
-                        associations = { "*.php", "*.phtml" },
                         maxSize = 5000000,
+                        associations = { "*.php", "*.phtml" },
+                        exclude = { "**/node_modules/**" },
+                    },
+                    -- Helpful stubs (intelephense will use these to recognise framework magic)
+                    stubs = {
+                        "Core", "DateTime", "Eloquent", "Illuminate", "laravel", "laravel_ide_helper",
+                        "auth", "broadcasting", "cache", "collection", "database", "http", "log", "mail",
+                        "pagination", "queue", "redis", "request", "response", "routing", "session", "view"
+                    },
+                    -- make sure the server knows to look in your project and vendor laravel src
+                    environment = {
+                        includePaths = {
+                            project_root,
+                            project_root .. "/vendor/laravel/framework/src",
+                        },
+                    -- adjust to your project's PHP version if needed
+                    phpVersion = "8.1",
                     },
                 },
             },
+            -- if you use an external formatter, disable intelephense formatting:
+            on_attach = function(client, bufnr)
+                if client.server_capabilities then
+                    client.server_capabilities.documentFormattingProvider = false
+                end
+            end,
         })
 
         --phpactor
-        lspconfig.phpactor.setup({
-        capabilities = capabilities,
-            init_options = {
-                ["language_server_phpstan.enabled"] = false,
-                ["language_server_psalm.enabled"] = false,
-            },
-        })
+        --lspconfig.phpactor.setup({
+        --capabilities = capabilities,
+            --init_options = {
+                --["language_server_phpstan.enabled"] = false,
+                --["language_server_psalm.enabled"] = false,
+            --},
+        --})
 
         --tailwind
         lspconfig.tailwindcss.setup({
@@ -222,7 +246,12 @@ return {
         -- omnisharp (C#)
         lspconfig.omnisharp.setup({
             capabilities = capabilities,
-            cmd = { "omnisharp" }, -- Mason puts it in PATH
+            cmd = {
+                vim.fn.stdpath("data") .. "/mason/bin/OmniSharp",  -- note the capital O and S
+                "--languageserver",
+                "--hostPID",
+                tostring(vim.fn.getpid()),
+            },
             enable_editorconfig_support = true,
             enable_ms_build_load_projects_on_demand = false,
             enable_roslyn_analyzers = true,
@@ -230,6 +259,25 @@ return {
             enable_import_completion = true,
             sdk_include_prereleases = true,
             analyze_open_documents_only = false,
+        })
+
+
+        -- Python (Pyright)
+        lspconfig.pyright.setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+                -- optional: disable formatting if you plan to use a separate formatter like black
+                client.server_capabilities.documentFormattingProvider = false
+            end,
+            settings = {
+                python = {
+                    analysis = {
+                        autoSearchPaths = true,
+                        useLibraryCodeForTypes = true,
+                        typeCheckingMode = "basic", -- or "strict" if you want strict type checks
+                    },
+                },
+            },
         })
 
         -- HACK: If using Blink.cmp Configure all LSPs here

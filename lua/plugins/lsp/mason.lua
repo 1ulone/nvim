@@ -60,6 +60,7 @@ return {
                 "pylint",
                 "clangd",
                 "denols",
+                "black",
                 -- { 'eslint_d', version = '13.1.2' },
             },
 
