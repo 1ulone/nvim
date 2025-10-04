@@ -47,6 +47,7 @@ return {
                 "omnisharp",
                 "phpactor",
                 "intelephense",
+                "pyright",
             },
             automatic_installation = true,
         })

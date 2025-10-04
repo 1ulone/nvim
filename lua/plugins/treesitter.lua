@@ -24,6 +24,7 @@ return {
                     "go",
                     "yaml",
                     "html",
+                    "php",
                     "css",
                     "python",
                     "http",
@@ -43,6 +44,7 @@ return {
                     "java",
                     "rust",
                     "ron",
+                    "c_sharp",
                 },
                 incremental_selection = {
                     enable = true,
@@ -60,7 +62,7 @@ return {
     {
         "windwp/nvim-ts-autotag",
         enabled = true,
-        ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
+        ft = { "html", "php", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
         config = function()
             -- Independent nvim-ts-autotag setup
             require("nvim-ts-autotag").setup({
@@ -70,9 +72,6 @@ return {
                     enable_close_on_slash = false, -- Disable auto-close on trailing `</`
                 },
                 per_filetype = {
-                    ["html"] = {
-                        enable_close = true, -- Disable auto-closing for HTML
-                    },
                     ["typescriptreact"] = {
                         enable_close = true, -- Explicitly enable auto-closing (optional, defaults to `true`)
                     },

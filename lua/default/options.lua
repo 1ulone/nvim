@@ -11,7 +11,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.wrap = true
+vim.opt.wrap = true 
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -30,3 +30,4 @@ vim.opt.backspace = {"start", "eol", "indent"}
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
