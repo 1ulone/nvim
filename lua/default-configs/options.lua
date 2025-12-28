@@ -8,7 +8,7 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
-vim.o.wrap = true 
+vim.o.wrap = true
 
 vim.o.incsearch = true
 vim.o.inccommand = "split"

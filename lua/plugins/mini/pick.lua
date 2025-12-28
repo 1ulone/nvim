@@ -18,6 +18,16 @@ require("mini.pick").setup({
         end,
     },
 })
+-- Function to set highlight background to 'none'
+local function set_hl_bg_none(group)
+  vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+end
+
+set_hl_bg_none("MiniPickBorder")
+set_hl_bg_none("MiniPickPrompt")
+set_hl_bg_none("MiniPickInput")
+set_hl_bg_none("MiniPickResult")
+set_hl_bg_none("NormalFloat") 
 
 vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files, { desc = "Main way to search file" })
 vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers, { desc = "Search a buffer" })

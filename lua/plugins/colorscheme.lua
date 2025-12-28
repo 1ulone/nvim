@@ -8,4 +8,15 @@ require("evergarden").setup({
     }
 })
 
+-- require('nightfox').setup({
+--     options = {
+--         transparent = true,
+--     },
+-- })
+
+-- require('kanso').setup({
+--     transparent = true,
+--     foreground = "saturated",
+-- })
+
 vim.cmd("colorscheme evergarden")

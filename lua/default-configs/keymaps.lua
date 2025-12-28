@@ -1,4 +1,6 @@
-local opts = { noremap = true, silent = true } 
+local opts = { noremap = true, silent = true }
+
+vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -38,7 +40,7 @@ vim.keymap.set("n", "<C-K>", "<C-w>k", { desc = "Move up window" })
 vim.keymap.set("n", "<C-H>", "<C-w>h", { desc = "Move up window" })
 vim.keymap.set("n", "<C-L>", "<C-W>l", { desc = "Move up window" })
 
-vim.keymap.set("n", "<leader>fp", function() 
+vim.keymap.set("n", "<leader>fp", function()
     local filePath = vim.fn.expand("%:~")
     vim.fn.setreg("+", filePath)
     print("This File path copied to clipboard : " .. filePath)

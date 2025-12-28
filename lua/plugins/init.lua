@@ -5,18 +5,34 @@ vim.pack.add({
     'https://github.com/nvim-mini/mini.pick',
     'https://github.com/nvim-mini/mini.icons',
     'https://github.com/nvim-mini/mini.files',
-    'https://github.com/nvim-mini/mini.hipatterns',
-    'https://github.com/nvim-mini/mini.statusline',
+    'https://github.com/nvim-mini/mini-git',
+    'https://github.com/nvim-mini/mini.comment',
+    'https://github.com/nvim-mini/mini.pairs',
+    'https://github.com/nvim-mini/mini.surround',
+    'https://github.com/nvim-mini/mini.splitjoin',
+    'https://github.com/nvim-lualine/lualine.nvim',
+    'https://github.com/saghen/blink.cmp',
+    'https://github.com/EdenEast/nightfox.nvim',
+    'https://github.com/webhooked/kanso.nvim',
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/mason-org/mason.nvim',
+    'https://github.com/mason-org/mason-lspconfig.nvim',
+    'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/tronikelis/ts-autotag.nvim',
+    'https://github.com/folke/todo-comments.nvim',
 })
-
---short plugins that just needs one line
-require('mini.icons').setup() --icons setup
-vim.keymap.set("n", "lg", "<CMD>LazyGit<CR>", { silent=true, desc="Open LazyGit"} ) --Lazygit keymap
 
 --other plugins that is quite long
 require('plugins.oil')
+require('plugins.blink')
+require('plugins.lspconfig')
 require('plugins.colorscheme')
+require('plugins.lualine')
+require('plugins.mason')
+require('plugins.mini.general')
 require('plugins.mini.pick')
 require('plugins.mini.files')
-require('plugins.mini.hipatterns')
-require('plugins.mini.statusline')
+require('plugins.treesitter')
+require('plugins.todo-comments')
+require('plugins.lazygit')
