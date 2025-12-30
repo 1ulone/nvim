@@ -7,6 +7,9 @@ require("mason-tool-installer").setup({
         "cssls",
         "tailwindcss",
         "ts_ls",
-        "omnisharp",
-    }
+        "laravel_ls",
+        "omnisharp@1.39.11",
+    },
+    auto_update = false,
+    run_on_start = false,
 })
