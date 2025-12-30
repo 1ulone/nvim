@@ -1,17 +1,28 @@
-require("mini.files").setup({
-    mappings = {
-        go_in = '<Right>',
-        go_in_plus = '<CR>',
-        go_out = '<Left>',
-        go_out_plus = '<M-CR>',
-    },
-    windows = {
-        preview = true,
-    },
-})
-
-vim.keymap.set("n", "<leader>mf", MiniFiles.open, { desc = "opening Mini Files Explorer" })
-vim.keymap.set("n", "<leader>ef", function()
-    MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-    MiniFiles.reveal_cwd()
-end, { desc = "Open into current Opened file location" })
+-- return {
+--     "echasnovski/mini.nvim",
+--     lazy = false,
+--     config = function()
+--         require("mini.files").setup({
+--             mappings = {
+--                 go_in = "<Right>",
+--                 go_in_plus = "<CR>",
+--                 go_out = "<Left>",
+--                 go_out_plus = "<M-CR>",
+--             },
+--             windows = {
+--                 preview = true,
+--             },
+--         })
+--
+--         vim.keymap.set("n", "<leader>mf", MiniFiles.open, {
+--             desc = "opening Mini Files Explorer",
+--         })
+--
+--         vim.keymap.set("n", "<leader>ef", function()
+--             MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+--             MiniFiles.reveal_cwd()
+--         end, {
+--         desc = "Open into current opened file location",
+--     })
+-- end,
+-- }

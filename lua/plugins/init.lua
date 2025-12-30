@@ -1,39 +1,31 @@
--- vim.pack.add({
---     'https://github.com/stevearc/oil.nvim',
---     'https://github.com/everviolet/nvim',
---     'https://github.com/kdheepak/lazygit.nvim',
---     'https://github.com/nvim-mini/mini.pick',
---     'https://github.com/nvim-mini/mini.icons',
---     'https://github.com/nvim-mini/mini.files',
---     'https://github.com/nvim-mini/mini-git',
---     'https://github.com/nvim-mini/mini.comment',
---     'https://github.com/nvim-mini/mini.pairs',
---     'https://github.com/nvim-mini/mini.surround',
---     'https://github.com/nvim-mini/mini.splitjoin',
---     'https://github.com/nvim-lualine/lualine.nvim',
---     'https://github.com/saghen/blink.cmp',
---     'https://github.com/EdenEast/nightfox.nvim',
---     'https://github.com/webhooked/kanso.nvim',
---     'https://github.com/neovim/nvim-lspconfig',
---     'https://github.com/mason-org/mason.nvim',
---     'https://github.com/mason-org/mason-lspconfig.nvim',
---     'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
---     'https://github.com/nvim-treesitter/nvim-treesitter',
---     'https://github.com/tronikelis/ts-autotag.nvim',
---     'https://github.com/folke/todo-comments.nvim',
--- })
---
--- --other plugins that is quite long
--- require('plugins.oil')
--- require('plugins.blink')
--- require('plugins.lspconfig')
--- require('plugins.colorscheme')
--- require('plugins.lualine')
--- require('plugins.mason')
--- require('plugins.mini.general')
--- require('plugins.mini.pick')
--- require('plugins.mini.files')
--- require('plugins.treesitter')
--- require('plugins.todo-comments')
--- require('plugins.lazygit')
--- -- require('plugins.rosyln')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system {
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    }
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+    require("plugins.oil"),
+    require("plugins.lazygit"),
+    require("plugins.colorscheme"),
+    require("plugins.mini"),
+    require("plugins.lualine"),
+
+    require("plugins.blink"),
+    require("plugins.mason"),
+    require("plugins.lspconfig"),
+
+    require("plugins.treesitter"),
+    require("plugins.todo-comments")
+}, {
+    checker = { enabled = false },
+    defaults = { lazy = true, version = false },
+    install = { missing = true },
+})
