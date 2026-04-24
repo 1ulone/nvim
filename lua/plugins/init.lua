@@ -23,7 +23,10 @@ require("lazy").setup({
     require("plugins.lspconfig"),
 
     require("plugins.treesitter"),
-    require("plugins.todo-comments")
+    require("plugins.todo-comments"),
+
+    require("plugins.nvim-tree"),
+    require("plugins.nvim-unity")
 }, {
     checker = { enabled = false },
     defaults = { lazy = true, version = false },

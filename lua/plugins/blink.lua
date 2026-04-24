@@ -4,7 +4,7 @@ return {
   lazy = false,
   config = function()
     require("blink.cmp").setup({
-      keymap = { preset = "enter" },
+      keymap = { preset = "super-tab" },
       appearance = {
         nerd_font_variant = "mono",
         use_nvim_cmp_as_default = true,
