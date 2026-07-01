@@ -19,8 +19,6 @@ require("lazy").setup({
     require("plugins.lualine"),
 
     require("plugins.blink"),
-    require("plugins.mason"),
-    require("plugins.lspconfig"),
 
     require("plugins.treesitter"),
     require("plugins.todo-comments")
