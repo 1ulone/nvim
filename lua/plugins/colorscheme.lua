@@ -12,11 +12,35 @@ return {
                     accent = "blue",
                 },
                 editor = {
-                    transparent_background = true,
+                    transparent_background = false,
                 },
             })
             vim.cmd.colorscheme("evergarden")
         end,
+    },
+
+    {
+        "paulfrische/reddish.nvim",
+        name = "reddish",
+        lazy = false,
+        -- config = function()
+        --     vim.cmd.colorscheme("reddish")
+        -- end,
+    },
+
+    {
+        "ficcdaf/ashen.nvim",
+        name = "ashen",
+        tag = "*",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            transparent = false,
+        },
+        -- config = function(_, opts)
+        --     require("ashen").setup(opts)
+        --     vim.cmd.colorscheme('ashen')
+        -- end,
     },
 
     {

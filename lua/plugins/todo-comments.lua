@@ -2,7 +2,11 @@ return {
     "folke/todo-comments.nvim",
     lazy = false,
     config = function()
-        require("todo-comments").setup()
+        require("todo-comments").setup({
+            colors = {
+                hint = { "#6FD1D7" }
+            }
+        })
     end,
 }
 -- NOTE: im not installing no fucking plenary or fzf or extra package as is. 

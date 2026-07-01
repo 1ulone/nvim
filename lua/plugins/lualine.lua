@@ -8,7 +8,7 @@ return {
 
         require("lualine").setup({
             options = {
-                theme = "seoul256",
+                theme = "ayu_dark",
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
             },
