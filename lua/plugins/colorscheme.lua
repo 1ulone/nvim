@@ -15,7 +15,7 @@ return {
                     transparent_background = true,
                 },
             })
-            vim.cmd.colorscheme("evergarden")
+            -- vim.cmd.colorscheme("evergarden")
         end,
     },
 
@@ -29,6 +29,30 @@ return {
                 },
             })
         end,
+    },
+
+    {
+        "paulfrische/reddish.nvim",
+        name = "reddish",
+        lazy = false,
+        -- config = function()
+        --     vim.cmd.colorscheme("reddish")
+        -- end,
+    },
+
+    {
+        "ficcdaf/ashen.nvim",
+        name = "ashen",
+        tag = "*",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            transparent = true,
+        },
+        -- config = function(_, opts)
+        --     require("ashen").setup(opts)
+        --     vim.cmd.colorscheme('ashen')
+        -- end,
     },
 
     {
