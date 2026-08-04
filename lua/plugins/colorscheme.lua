@@ -49,10 +49,10 @@ return {
         opts = {
             transparent = true,
         },
-        -- config = function(_, opts)
-        --     require("ashen").setup(opts)
-        --     vim.cmd.colorscheme('ashen')
-        -- end,
+        config = function(_, opts)
+            require("ashen").setup(opts)
+            vim.cmd.colorscheme('ashen')
+        end,
     },
 
     {

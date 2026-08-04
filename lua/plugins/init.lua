@@ -20,6 +20,7 @@ require("lazy").setup({
 
     require("plugins.blink"),
     require("plugins.mason"),
+    require("plugins.venv-lsp"),
     require("plugins.lspconfig"),
 
     require("plugins.treesitter"),

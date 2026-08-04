@@ -106,11 +106,25 @@ return {
             },
         })
 
+        vim.lsp.config("pyright", {
+            settings = {
+                python = {
+                    analysis = {
+                        -- Silences false-positive attribute errors on C++ bindings like pinocchio
+                        diagnosticSeverityOverrides = {
+                            reportAttributeAccessIssue = "none",
+                        },
+                    },
+                },
+            },
+        })
+
         vim.lsp.enable("html")
         vim.lsp.enable("cssls")
         vim.lsp.enable("tailwindcss")
         vim.lsp.enable("laravel_ls")
         vim.lsp.enable("omnisharp")
+        -- vim.lsp.enable("pyright")
 
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
